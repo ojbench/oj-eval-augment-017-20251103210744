@@ -5,4 +5,5 @@ Makefile
 code
 *.db
 *.log
+*.dat
 
