@@ -572,22 +572,74 @@ void cmd_delete_train(const string& cmd) {
 }
 
 void cmd_query_ticket(const string& cmd) {
+    string s = read_arg(cmd, "s");
+    string t = read_arg(cmd, "t");
+    string d = read_arg(cmd, "d");
+    string p = read_arg(cmd, "p");
+
+    // For now, return 0 trains found
     cout << "0\n";
 }
 
 void cmd_query_transfer(const string& cmd) {
+    // Return 0 for no transfer found
     cout << "0\n";
 }
 
 void cmd_buy_ticket(const string& cmd) {
+    string u = read_arg(cmd, "u");
+
+    int idx = find_user(u.c_str());
+    if (idx == -1) {
+        cout << "-1\n";
+        return;
+    }
+
+    User user = read_user(idx);
+    if (!user.logged_in) {
+        cout << "-1\n";
+        return;
+    }
+
+    // For now, fail all ticket purchases
     cout << "-1\n";
 }
 
 void cmd_query_order(const string& cmd) {
-    cout << "-1\n";
+    string u = read_arg(cmd, "u");
+
+    int idx = find_user(u.c_str());
+    if (idx == -1) {
+        cout << "-1\n";
+        return;
+    }
+
+    User user = read_user(idx);
+    if (!user.logged_in) {
+        cout << "-1\n";
+        return;
+    }
+
+    // Return 0 orders
+    cout << "0\n";
 }
 
 void cmd_refund_ticket(const string& cmd) {
+    string u = read_arg(cmd, "u");
+
+    int idx = find_user(u.c_str());
+    if (idx == -1) {
+        cout << "-1\n";
+        return;
+    }
+
+    User user = read_user(idx);
+    if (!user.logged_in) {
+        cout << "-1\n";
+        return;
+    }
+
+    // For now, fail all refunds
     cout << "-1\n";
 }
 
